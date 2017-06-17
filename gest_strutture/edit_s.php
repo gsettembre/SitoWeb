@@ -134,7 +134,7 @@ if (isset($_POST['submit'])){
 			mysql_query("UPDATE struttura_museale SET Nome='$nome', Indirizzo='$indirizzo', Orario_apertura='$orario', Responsabile='$responsabile', Descrizione='$descrizione' WHERE ID='$id'") or die(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
-			header("Location: view_s.php");
+			header('Location: view_s.php');
 		}
 	}
 
@@ -169,7 +169,7 @@ if (isset($_POST['submit'])){
 				
 			} else { // se non corrisponde visualizza il risultato
 				
-				echo "Nessun risultato!";
+				echo 'Nessun risultato!';
 			}
 		}
 		else

@@ -99,7 +99,7 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 										</div>
 									</div>
 									<?php
-										$query = mysql_query("SELECT Nome FROM struttura_museale") or die(mysql_error());
+										$query = mysql_query('SELECT Nome FROM struttura_museale') or die(mysql_error());
 										
 										echo '<div class="6u">';
 											echo '<div class="select-wrapper">';
@@ -175,7 +175,7 @@ if (isset($_POST['submit'])){
 			mysql_query("UPDATE opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione' WHERE ID='$id'") or die(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
-			header("Location: view_o.php");
+			header('Location: view_o.php');
 		}
 	}
 
@@ -213,7 +213,7 @@ if (isset($_POST['submit'])){
 				
 			} else { // se non corrisponde visualizza il risultato
 				
-				echo "Nessun risultato!";
+				echo 'Nessun risultato!';
 			}
 		}
 		else

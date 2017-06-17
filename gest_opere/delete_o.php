@@ -23,12 +23,12 @@ $result = mysql_query("DELETE FROM opere WHERE ID='$id'")
 or die(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
-header("Location: view_o.php");
+header('Location: view_o.php');
 }
 else
 // se l'id non è impostato o non è valido reindirizza alla pagina di visualizzazione
 {
-header("Location: view_o.php");
+header('Location: view_o.php');
 }
  
 ?>

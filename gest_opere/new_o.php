@@ -93,7 +93,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 									</div>
 									
 									<?php
-										$query = mysql_query("SELECT Nome FROM struttura_museale") or die(mysql_error());
+										$query = mysql_query('SELECT Nome FROM struttura_museale') or die(mysql_error());
 										
 										echo '<div class="6u">';
 											echo '<div class="select-wrapper">';
@@ -180,7 +180,7 @@ if ($nome == '' || $autore == '' || $corrente == '' || $anno == '' || $categoria
 		mysql_query("INSERT opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione'") or die(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
-		header("Location: view_o.php");
+		header('Location: view_o.php');
 	}
 }
 else {

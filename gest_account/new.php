@@ -140,7 +140,7 @@ if ($username == '' || $password == ''){
 		mysql_query("INSERT utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo'") or die(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
-		header("Location: view.php");
+		header('Location: view.php');
 	}
 }
 else {

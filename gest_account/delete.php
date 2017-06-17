@@ -23,12 +23,12 @@ $result = mysql_query("DELETE FROM utenti WHERE ID='$id'")
 or die(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
-header("Location: view.php");
+header('Location: view.php');
 }
 else
 // se l'id non è impostato o non è valido reindirizza alla pagina di visualizzazione
 {
-header("Location: view.php");
+header('Location: view.php');
 }
  
 ?>

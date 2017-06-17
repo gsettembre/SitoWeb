@@ -140,7 +140,7 @@ if (isset($_POST['submit'])){
 			mysql_query("UPDATE utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo' WHERE ID='$id'") or die(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
-			header("Location: view.php");
+			header('Location: view.php');
 		}
 	}
 
@@ -175,7 +175,7 @@ if (isset($_POST['submit'])){
 				
 			} else { // se non corrisponde visualizza il risultato
 				
-				echo "Nessun risultato!";
+				echo 'Nessun risultato!';
 			}
 		}
 		else

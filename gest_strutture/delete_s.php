@@ -23,12 +23,12 @@ $result = mysql_query("DELETE FROM struttura_museale WHERE ID='$id'")
 or die(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
-header("Location: view_s.php");
+header('Location: view_s.php');
 }
 else
 // se l'id non è impostato o non è valido reindirizza alla pagina di visualizzazione
 {
-header("Location: view_s.php");
+header('Location: view_s.php');
 }
  
 ?>

@@ -55,7 +55,7 @@
 			include '../dbConnection.php';
 			 
 			// ottiene i risultati dal database
-			$result = mysql_query("SELECT * FROM utenti") or die(mysql_error());
+			$result = mysql_query('SELECT * FROM utenti') or die(mysql_error());
 			 
 			// visualizza i dati in tabella
 			 
@@ -78,7 +78,7 @@
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
-				echo "<tr>";
+				echo '<tr>';
 				echo '<td>' .$row['ID'].'</td>';
 				echo '<td>' . $row['Nome'] . '</td>';
 				echo '<td>' . $row['Cognome'] . '</td>';
@@ -87,7 +87,7 @@
 				echo '<td>' . $row['Ruolo'] . '</td>';
 				echo '<td><a href="edit.php?id='.$row['ID'].'" class="button alt small">Modifica</a></td>';
 				echo '<td><a href="delete.php?id='.$row['ID'].'" class="button special small">Elimina</a></td>';
-				echo "</tr>";
+				echo '</tr>';
 			}
 			 
 			// chiude la tabella>
