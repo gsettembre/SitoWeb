@@ -60,7 +60,7 @@ HTML;
 // se ci sono errori vengono visualizzati
 if ($error != '')
 {
-echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
 }
 ?>
 		<section id="main" class="wrapper">
@@ -106,7 +106,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 												echo '<option value="0"> - Ubicazione - </option>';
 												while($row = mysql_fetch_array($query))
 												{
-													echo "<option value=\"".$row['Nome']."\">".$row['Nome']."</option>";
+													echo "<option value=\"",$row['Nome'],"\">",$row['Nome'],"</option>";
 												}							
 										
 									?>

@@ -60,7 +60,7 @@ HTML;
 // se ci sono errori vengono visualizzati
 if ($error != '')
 {
-	echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+	echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
 }
 ?>
  
@@ -104,12 +104,7 @@ if ($error != '')
 						
 						</div>	
 
-			</section> 
-			
-			
-			
-			
-			
+			</section>			
 			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -134,7 +129,7 @@ if (isset($_POST['submit']))
 	$ruolo = mysql_real_escape_string(htmlspecialchars($_POST['ruolo']));
  
 // controlla che entrambi i campi vengono inseriti
-if ($username == '' || $password == ''){
+if ($username == '' || $password == '' || $nome == '' || $cognome == '' || $ruolo == ''){
 	// genera messaggio di errore
 	$error = 'ERROR: Username e Password sono campi obbligatori!';
 	 

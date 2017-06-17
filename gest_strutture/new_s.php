@@ -61,7 +61,7 @@ HTML;
 // se ci sono errori vengono visualizzati
 if ($error != '')
 {
-	echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+	echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
 }
 ?>
  

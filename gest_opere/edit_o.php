@@ -62,7 +62,7 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 			// se ci sono errori, vengono visualizzati
 			if ($error != '') {
 			
-				echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+				echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
 			}?>
 			
 			<section id="main" class="wrapper">
@@ -107,12 +107,12 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 												echo '<select name="ubicazione" value="<?php echo $ubicazione;?>">';
 												while($row = mysql_fetch_array($query))
 												{
-													echo "<option value=\"".$row['Nome']."\">".$row['Nome']."</option>";
+													echo "<option value=\"",$row['Nome'],"\">",$row['Nome'],"</option>";
 												}
 									?>
 													</select>
 												</div>
-										</div>';
+										</div>
 									<div class="6u$ 12u$(xsmall)">
 										<input type="text" name="dimensioni" value="<?php echo $dimensioni;?>" placeholder="Dimensioni" />
 									</div>
@@ -126,18 +126,11 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 									</div>
 								</div>
 							</form>
-						</section>
-						
-						<hr/>					
-						
+						</section>				
 				</div>	
-
-			</section>
-						
+			</section>		
 				</div>	
-
 			</section> 
-			
 		</body>
 	</html>
 <?php

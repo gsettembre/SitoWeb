@@ -89,17 +89,17 @@ HTML;
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
 				echo '<tr>';
-				echo '<td>' .$row['ID'].'</td>';
-				echo '<td>' . $row['Nome'] . '</td>';
-				echo '<td>' . $row['Autore'] . '</td>';
-				echo '<td>' . $row['Corrente_artistica'] . '</td>';
-				echo '<td>' . $row['Anno_realizzazione'] . '</td>';
-				echo '<td>' . $row['Dimensioni'] . '</td>';
-				echo '<td>' . $row['Categoria'] . '</td>';
-				echo '<td>' . $row['Ubicazione'] . '</td>';
-				echo '<td><a href="edit_o.php?id='.$row['ID'].'" class="button alt small">Modifica</a></td>';
-				echo '<td><a href="delete_o.php?id='.$row['ID'].'" class="button special small">Elimina</a></td>';
-				echo '<td><a href="phpqrcode/index.php?id='.$row['ID'].'" class="button small">QR COde</a></td>';
+				echo '<td>',$row['ID'],'</td>';
+				echo '<td>', $row['Nome'], '</td>';
+				echo '<td>', $row['Autore'], '</td>';
+				echo '<td>', $row['Corrente_artistica'], '</td>';
+				echo '<td>', $row['Anno_realizzazione'],'</td>';
+				echo '<td>', $row['Dimensioni'], '</td>';
+				echo '<td>', $row['Categoria'], '</td>';
+				echo '<td>', $row['Ubicazione'], '</td>';
+				echo '<td><a href="edit_o.php?id=',$row['ID'],'" class="button alt small">Modifica</a></td>';
+				echo '<td><a href="delete_o.php?id=',$row['ID'],'" class="button special small">Elimina</a></td>';
+				echo '<td><a href="phpqrcode/index.php?id=',$row['ID'],'" class="button small">QR COde</a></td>';
 				echo '</tr>';
 			}
 			 
