@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<title>Gestione account</title>
+		<link rel="icon" href="../images/favicon.ico" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -15,7 +16,8 @@
 	<?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
-		echo '<header id="header">
+		$h_amm = <<<HTML
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -24,12 +26,15 @@
 						<li><a href="view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
-					
 				</nav>
-			</header>';
+			</header>
+HTML;
+		echo $h_amm;
 			
 		}else{
-			echo '<header id="header">
+		
+		$h_op = <<<	HTML
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -38,8 +43,10 @@
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
-			</header>';
-			
+			</header>
+HTML;
+		echo $h_op;
+		
 		} ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>

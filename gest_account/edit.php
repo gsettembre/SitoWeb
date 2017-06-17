@@ -19,6 +19,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 	<html>
 		<head>
 			<title>Modifica account</title>
+			<link rel="icon" href="../images/favicon.ico" />
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link rel="stylesheet" href="../assets/css/main.css" />

@@ -13,6 +13,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 <html>
 <head>
 	<title>Inserimento account</title>
+	<link rel="icon" href="../images/favicon.ico" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
@@ -21,7 +22,8 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 <?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
-		echo '<header id="header">
+		$h_amm = <<<HTML
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -32,19 +34,24 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 					</ul>
 					
 				</nav>
-			</header>';
+			</header>
+HTML;
+		echo $h_amm;			
 			
 		}else{
-			echo '<header id="header">
-				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
-						<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="../logout.php">Logout</a></li>
-					</ul>
-				</nav>
-			</header>';
+			$h_op = <<<	HTML
+				<header id="header">
+					<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+							<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
+							<li><a href="../logout.php">Logout</a></li>
+						</ul>
+					</nav>
+				</header>
+HTML;
+		echo $h_op;			
 			
 		} ?>
 		
@@ -53,7 +60,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 // se ci sono errori vengono visualizzati
 if ($error != '')
 {
-echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
+	echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
 }
 ?>
  

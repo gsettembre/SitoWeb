@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<title>Gestione Opere</title>
+		<link rel="icon" href="../images/favicon.ico" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -15,8 +16,8 @@
 	
 	<?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
-			
-		echo '
+				
+		$h_amm = <<<HTML
 			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
@@ -26,14 +27,15 @@
 						<li><a href="../gest_account/view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
-					
 				</nav>
-			</header>';
-
-			
+			</header>
+HTML;
+		echo $h_amm;
+		
 		}else{
 			
-			echo '<header id="header">
+			$h_op = <<<HTML
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -42,8 +44,9 @@
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
-			</header>';
-			
+			</header>
+HTML;
+			echo $h_op;
 		} ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -61,8 +64,8 @@
 			$result = mysql_query('SELECT * FROM opere') or die(mysql_error());
 			 
 			// visualizza i dati in tabella
-			 
-			echo '<section>
+			$intestazione = <<<HTML
+				<section>
 							<h4>Elenco opere</h4>
 							<div class="table-wrapper">
 								<table class="alt">
@@ -78,8 +81,10 @@
 											<th>Ubicazione</th>
 										</tr>
 									</thead>
-									<tbody>';
-									
+									<tbody>
+HTML;
+			echo $intestazione;
+
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
