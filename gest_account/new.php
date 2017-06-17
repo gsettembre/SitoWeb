@@ -17,9 +17,8 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-
+<body>
 <?php
-	echo '<body>';
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
 		echo '<header id="header">

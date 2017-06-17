@@ -22,9 +22,9 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link rel="stylesheet" href="../assets/css/main.css" />
 		</head>
-		
-		<?php
-	echo '<body>';
+	<body>
+	
+	<?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
 		echo '<header id="header">
@@ -108,12 +108,10 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 												{
 													echo "<option value=\"".$row['Nome']."\">".$row['Nome']."</option>";
 												}
-													
-													
-												echo '</select>';
-											echo '</div>';
-										echo '</div>';
 									?>
+													</select>
+												</div>
+										</div>';
 									<div class="6u$ 12u$(xsmall)">
 										<input type="text" name="dimensioni" value="<?php echo $dimensioni;?>" placeholder="Dimensioni" />
 									</div>

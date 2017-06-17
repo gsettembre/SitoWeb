@@ -11,11 +11,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 	</head>
+	<body>
+	
 	<?php
-	echo '<body>';
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
-		echo '<header id="header">
+		echo '
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -27,8 +29,10 @@
 					
 				</nav>
 			</header>';
+
 			
 		}else{
+			
 			echo '<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
