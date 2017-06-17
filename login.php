@@ -1,6 +1,6 @@
 <?php
 	//Fase 1: connessione DB
-	include('dbConnection.php');
+	include 'dbConnection.php';
 	//Fase 2: controllo inserimento
 	if(isset($_POST['login'])){
 		$username = isset($_POST['username']) ? clear($_POST['username']) : false;

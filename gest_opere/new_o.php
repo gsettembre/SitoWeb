@@ -152,7 +152,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 }
  
 // connessione al database
-include('../dbConnection.php');
+include '../dbConnection.php';
  
 // verifica se il modulo è stato inviato. Se lo è, inizia a elaborare il modulo e lo salva nel database
 if (isset($_POST['submit']))

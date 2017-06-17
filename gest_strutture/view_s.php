@@ -52,7 +52,7 @@
 		<?php
 			 
 			// connessione al database
-			include('../dbConnection.php');
+			include '../dbConnection.php';
 			 
 			// ottiene i risultati dal database
 			$result = mysql_query('SELECT * FROM struttura_museale') or die(mysql_error());

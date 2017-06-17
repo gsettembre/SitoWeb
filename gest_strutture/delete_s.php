@@ -10,7 +10,7 @@ Cancella una voce specifica della tabella 'players'
 */
  
 // connessione al database
-include('../dbConnection.php');
+include '../dbConnection.php';
  
 // controlla se la variabile 'id' è impostata nell'URL, e controlla che sia valida
 if (isset($_GET['id']) && is_numeric($_GET['id']))

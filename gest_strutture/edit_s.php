@@ -107,7 +107,7 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 }
  
 // connessione al database
-include('../dbConnection.php');
+include '../dbConnection.php';
  
 // verifica se il modulo è stato inviato. Se lo è, inizia a elaborare il modulo e lo salva nel database
 if (isset($_POST['submit'])){
