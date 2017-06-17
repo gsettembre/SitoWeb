@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <?php
-	include('dbConnection.php');
+	include'dbConnection.php';
 	if(isset($_SESSION['username']))
 	{	
 ?>
