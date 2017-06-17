@@ -55,26 +55,25 @@
 			include('../dbConnection.php');
 			 
 			// ottiene i risultati dal database
-			$result = mysql_query("SELECT * FROM utenti")
-			or die(mysql_error());
+			$result = mysql_query("SELECT * FROM utenti") or die(mysql_error());
 			 
 			// visualizza i dati in tabella
 			 
-			echo "<section>";
-							echo "<h4>Elenco utenti</h4>";
-							echo "<div class='table-wrapper'>";
-								echo "<table class='alt'>";
-									echo "<thead>";
-										echo "<tr>
+			echo '<section>
+							<h4>Elenco utenti</h4>
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
 											<th>ID</th>
 											<th>Nome</th>
 											<th>Cognome</th>
 											<th>Username</th>
 											<th>Password</th>
 											<th>Ruolo</th>
-										</tr>";
-									echo "</thead>";
-									echo "<tbody>";
+										</tr>
+									</thead>
+									<tbody>';
 									
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
@@ -93,11 +92,11 @@
 			 
 			// chiude la tabella>
 				echo '</tbody>
-				<tfoot>
-				</tfoot>
-				</table>
-				</div>
-				</section>';
+					<tfoot>
+					</tfoot>
+					</table>
+					</div>
+					</section>';
 		?>
 			<p><a href="new.php">Aggiungi un nuovo account</a></p>
 			</div>
