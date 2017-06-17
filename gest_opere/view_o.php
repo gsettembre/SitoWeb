@@ -58,12 +58,12 @@
 			 
 			// visualizza i dati in tabella
 			 
-			echo "<section>";
-							echo "<h4>Elenco opere d'arte</h4>";
-							echo "<div class='table-wrapper'>";
-								echo "<table class='alt'>";
-									echo "<thead>";
-										echo "<tr>
+			echo '<section>
+							<h4>Elenco opere</h4>
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
 											<th>ID</th>
 											<th>Nome</th>
 											<th>Autore</th>
@@ -72,14 +72,14 @@
 											<th>Dimensioni</th>
 											<th>Catetogia</th>
 											<th>Ubicazione</th>
-										</tr>";
-									echo "</thead>";
-									echo "<tbody>";
+										</tr>
+									</thead>
+									<tbody>';
 									
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
-				echo "<tr>";
+				echo '<tr>';
 				echo '<td>' .$row['ID'].'</td>';
 				echo '<td>' . $row['Nome'] . '</td>';
 				echo '<td>' . $row['Autore'] . '</td>';
@@ -91,7 +91,7 @@
 				echo '<td><a href="edit_o.php?id='.$row['ID'].'" class="button alt small">Modifica</a></td>';
 				echo '<td><a href="delete_o.php?id='.$row['ID'].'" class="button special small">Elimina</a></td>';
 				echo '<td><a href="phpqrcode/index.php?id='.$row['ID'].'" class="button small">QR COde</a></td>';
-				echo "</tr>";
+				echo '</tr>';
 			}
 			 
 			// chiude la tabella>

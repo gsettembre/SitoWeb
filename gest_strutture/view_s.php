@@ -55,30 +55,30 @@
 			include('../dbConnection.php');
 			 
 			// ottiene i risultati dal database
-			$result = mysql_query("SELECT * FROM struttura_museale") or die(mysql_error());
+			$result = mysql_query('SELECT * FROM struttura_museale') or die(mysql_error());
 			 
 			// visualizza i dati in tabella
 			 
-			echo "<section>";
-							echo "<h4>Elenco strutture museali</h4>";
-							echo "<div class='table-wrapper'>";
-								echo "<table class='alt'>";
-									echo "<thead>";
-										echo "<tr>
+			echo '<section>
+							<h4>Elenco strutture museali</h4>
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
 											<th>ID</th>
 											<th>Nome</th>
 											<th>Indirizzo</th>
 											<th>Descrizione</th>
 											<th>Orari</th>
 											<th>Responsabile</th>
-										</tr>";
-									echo "</thead>";
-									echo "<tbody>";
+										</tr>
+									</thead>
+									<tbody>';
 									
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
-				echo "<tr>";
+				echo '<tr>';
 				echo '<td>' .$row['ID'].'</td>';
 				echo '<td>' . $row['Nome'] . '</td>';
 				echo '<td>' . $row['Indirizzo'] . '</td>';
@@ -87,7 +87,7 @@
 				echo '<td>' . $row['Responsabile'] . '</td>';
 				echo '<td><a href="edit_s.php?id='.$row['ID'].'" class="button alt small">Modifica</a></td>';
 				echo '<td><a href="delete_s.php?id='.$row['ID'].'" class="button special small">Elimina</a></td>';
-				echo "</tr>";
+				echo '</tr>';
 			}
 			 
 			// chiude la tabella>
