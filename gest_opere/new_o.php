@@ -3,14 +3,6 @@
 	if(isset($_SESSION['username']) === true)
 	{	
 ?>
-
-<?php
- 
-// crea il modulo di inserimento nuovi dati
-// dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
-function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
-{
-?>
 <html>
 <head>
 	<title>Inserimento opera</title>
@@ -20,6 +12,15 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 	<link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 <body>
+
+<?php
+ 
+// crea il modulo di inserimento nuovi dati
+// dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
+function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
+{
+?>
+
 <?php
 		if($_SESSION['ruolo'] === 'Amministratore'){
 			
@@ -105,9 +106,8 @@ if ($error !== '')
 												echo '<option value="0"> - Ubicazione - </option>';
 												while($row = mysql_fetch_array($query))
 												{
-													echo "<option value=\"",$row['Nome'],"\">",$row['Nome'],"</option>";
+													echo '<option value=\'',$row['Nome'],'\'>',$row['Nome'],'</option>';
 												}							
-										
 									?>
 													</select>
 											</div>

@@ -4,17 +4,6 @@
 	{	
 ?>
 
-<?php
-/*
-EDIT.PHP
-Consente all'utente di modificare una voce specifica nel database
-*/
- 
-// crea il form di modifica record
-// dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
-function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
-{
-?>
 	<html>
 		<head>
 			<title>Modifica opera</title>
@@ -24,6 +13,13 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 			<link rel="stylesheet" href="../assets/css/main.css" />
 		</head>
 	<body>
+
+<?php
+// crea il form di modifica record
+// dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
+function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
+{
+?>
 	
 	<?php
 		if($_SESSION['ruolo'] === 'Amministratore'){
@@ -66,7 +62,7 @@ HTML;
 	$err = <<<HTML
 		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
 HTML;
-if ($error !== '')
+if ($error != '')
 	echo $err;
 ?>
 			<section id="main" class="wrapper">
@@ -105,13 +101,12 @@ if ($error !== '')
 									</div>
 									<?php
 										$query = mysql_query('SELECT Nome FROM struttura_museale') or trigger_error(mysql_error());
-										
 										echo '<div class="6u">';
 											echo '<div class="select-wrapper">';
 												echo '<select name="ubicazione" value="<?php echo $ubicazione;?>">';
 												while($row = mysql_fetch_array($query))
 												{
-													echo "<option value=\"",$row['Nome'],"\">",$row['Nome'],"</option>";
+													echo '<option value=\'',$row['Nome'],'\'>',$row['Nome'],'</option>';
 												}
 									?>
 													</select>
