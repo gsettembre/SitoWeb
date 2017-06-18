@@ -137,7 +137,7 @@ if (isset($_POST['submit'])){
 			renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error);
 		} else{
 			// salva i dati nel database
-			mysql_query("UPDATE utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo' WHERE ID='$id'") or die(mysql_error());
+			mysql_query("UPDATE utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo' WHERE ID='$id'") or trigger_error(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 			header('Location: view.php');

@@ -104,7 +104,7 @@ if ($error !== '')
 										</div>
 									</div>
 									<?php
-										$query = mysql_query('SELECT Nome FROM struttura_museale') or die(mysql_error());
+										$query = mysql_query('SELECT Nome FROM struttura_museale') or trigger_error(mysql_error());
 										
 										echo '<div class="6u">';
 											echo '<div class="select-wrapper">';
@@ -188,7 +188,7 @@ if (isset($_POST['submit']) === true){
 			
 			// query db
 			$id = $_GET['id'];
-			$result = mysql_query("SELECT * FROM opere WHERE ID=$id") or die(mysql_error());
+			$result = mysql_query("SELECT * FROM opere WHERE ID=$id") or trigger_error(mysql_error());
 			$row = mysql_fetch_array($result);
 			 
 			// verifica che l' 'id' corrisponda a una riga nel database

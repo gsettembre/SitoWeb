@@ -98,8 +98,7 @@ if ($error !== '')
 									</div>
 									
 									<?php
-										$query = mysql_query('SELECT Nome FROM struttura_museale') or die(mysql_error());
-										
+										$query = mysql_query('SELECT Nome FROM struttura_museale');
 										echo '<div class="6u">';
 											echo '<div class="select-wrapper">';
 												echo '<select name="ubicazione" value="<?php echo $ubicazione;?>">';
