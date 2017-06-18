@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['username']) === true)
 	{	
 ?>
 
@@ -26,7 +26,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 		</head>
 		<body>
 	<?php
-		if($_SESSION['ruolo'] == 'Amministratore'){
+		if($_SESSION['ruolo'] === 'Amministratore'){
 			
 		$h_amm = <<<HTML
 			<header id="header">
@@ -60,7 +60,7 @@ HTML;
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
-		<?php
+<?php
 // se ci sono errori, vengono visualizzati
 	$err = <<<HTML
 		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
@@ -68,7 +68,6 @@ HTML;
 if ($error != '')
 	echo $err;
 ?>
-			
 			<section id="main" class="wrapper">
 				<div class="container">
 					
@@ -105,12 +104,9 @@ if ($error != '')
 									</div>
 								</div>
 							</form>
-						</section>
-						
+						</section>	
 				</div>	
-
 			</section> 
-			
 		</body>
 	</html>
 <?php
@@ -123,7 +119,7 @@ include '../dbConnection.php';
 if (isset($_POST['submit'])){
 	
 	// verificare che il valore di 'id' sia un intero valido prima di ottenere i dati del modulo
-	if (is_numeric($_POST['id'])){
+	if (is_numeric($_POST['id']) === true){
 		// ottenere i dati del modulo e verific che siano validi
 		$id = $_POST['id'];
 		$nome = mysql_real_escape_string(htmlspecialchars($_POST['nome']));
@@ -133,9 +129,9 @@ if (isset($_POST['submit'])){
 		$ruolo = mysql_real_escape_string(htmlspecialchars($_POST['ruolo']));
 		 
 		// controlla che i campi nome/cognome siano entrambi compilati
-		if ($username == '' || $password == ''){
+		if ($username === '' || $password === '' || $nome === '' || $cognome === '' || $ruolo === ''){
 			// genera messaggio di errore
-			$error = 'ERROR: Please fill in all required fields!';
+			$error = 'ERROR: Tutti i campi sono campi obbligatori!';
 			 
 			// errore, visualizzo il modulo
 			renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error);

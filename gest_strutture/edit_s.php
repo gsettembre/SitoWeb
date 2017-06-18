@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['username']) === true)
 	{	
 ?>
 
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])){
 		$descrizione = mysql_real_escape_string(htmlspecialchars($_POST['descrizione']));
 		 
 		// controlla che i campi nome/cognome siano entrambi compilati
-		if ($nome == '' || $indirizzo == '' || $orario == '' || $responsabile == '' || descrizione == ''){
+		if ($nome === '' || $indirizzo === '' || $orario === '' || $responsabile === '' || descrizione === ''){
 			// genera messaggio di errore
 			$error = 'ERROR: Tutti i campi sono obbligatori!';
 			 

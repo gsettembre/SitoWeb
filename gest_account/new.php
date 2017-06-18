@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['username']) === true)
 	{	
 ?>
 <?php
@@ -124,7 +124,7 @@ if (isset($_POST['submit']))
 // controlla che entrambi i campi vengono inseriti
 if ($username == '' || $password == '' || $nome == '' || $cognome == '' || $ruolo == ''){
 	// genera messaggio di errore
-	$error = 'ERROR: Username e Password sono campi obbligatori!';
+	$error = 'ERROR: Tutti i campi sono campi obbligatori!';
 	 
 	// se uno dei due campi è vuoto, visualizzo di nuovo il modulo
 	renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error);

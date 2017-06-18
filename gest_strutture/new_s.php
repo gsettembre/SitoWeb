@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['username']) === true)
 	{	
 ?>
 
@@ -22,7 +22,7 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 <body>
 
 <?php
-		if($_SESSION['ruolo'] == 'Amministratore'){
+		if($_SESSION['ruolo'] === 'Amministratore'){
 			
 			$h_amm = <<<HTML
 			 <header id="header">
@@ -61,7 +61,7 @@ HTML;
 $err = <<<HTML
 		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
 HTML;
-if ($error != '')
+if ($error !== '')
 	echo $err;
 ?>
  
@@ -113,7 +113,7 @@ if ($error != '')
 include '../dbConnection.php';
  
 // verifica se il modulo è stato inviato. Se lo è, inizia a elaborare il modulo e lo salva nel database
-if (isset($_POST['submit']))
+if (isset($_POST['submit']) === true)
 {
 // ottenere i dati del modulo e verifica che siano validi
 	$nome = mysql_real_escape_string(htmlspecialchars($_POST['nome']));
@@ -123,7 +123,7 @@ if (isset($_POST['submit']))
 	$descrizione = mysql_real_escape_string(htmlspecialchars($_POST['descrizione']));
  
 // controlla che entrambi i campi vengono inseriti
-if ($nome == '' || $indirizzo == '' || $orario == '' || $responsabile == '' || descrizione == ''){
+if ($nome === '' || $indirizzo === '' || $orario === '' || $responsabile === '' || descrizione === ''){
 	// genera messaggio di errore
 	$error = 'ERROR: Tutti i campi sono obbligatori!';
 	 

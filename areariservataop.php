@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php
 	include'dbConnection.php';
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['username']) === true)
 	{	
 ?>
 <html>

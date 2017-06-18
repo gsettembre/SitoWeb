@@ -2,7 +2,7 @@
 	//Fase 1: connessione DB
 	include 'dbConnection.php';
 	//Fase 2: controllo inserimento
-	if(isset($_POST['login'])){
+	if(isset($_POST['login']) === true){
 		$username = isset($_POST['username']) ? clear($_POST['username']) : false;
 		$password = isset($_POST['password']) ? clear($_POST['password']) : false;
 		
