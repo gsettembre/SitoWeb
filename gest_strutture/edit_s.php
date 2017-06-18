@@ -41,6 +41,7 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 					</nav>
 				</header>
 HTML;
+		echo $h_amm;
 		}else{
 			$h_op = <<<HTML
 			<header id="header">
