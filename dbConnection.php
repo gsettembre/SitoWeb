@@ -7,11 +7,11 @@
 
 	$r = mysql_pconnect($host, $user, $pass);
 
-	if (!$r) {
+	if ($r == true) {
+		mysql_select_db($db,$r);
+	} else {
 		echo 'Non posso connettermi al server... Servizio temporaneamente non dispobibile!';
 		trigger_error(mysql_error(), E_USER_ERROR);
-	} else {
-		mysql_select_db($db,$r);
 	}
 	
 	function clear($var){

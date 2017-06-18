@@ -61,7 +61,7 @@ HTML;
 			include '../dbConnection.php';
 			 
 			// ottiene i risultati dal database
-			$result = mysql_query('SELECT * FROM utenti') or die(mysql_error());
+			$result = mysql_query('SELECT * FROM utenti') or trigger_error(mysql_error());
 			 
 			// visualizza i dati in tabella
 			$int_tab = <<<HTML

@@ -131,7 +131,7 @@ if ($username == '' || $password == '' || $nome == '' || $cognome == '' || $ruol
 	
 	} else{
 		// salva i dati nel database
-		mysql_query("INSERT utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo'") or die(mysql_error());
+		mysql_query("INSERT utenti SET Nome='$nome', Cognome='$cognome', Username='$username', Password='$password', Ruolo='$ruolo'") or trigger_error(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 		header('Location: view.php');

@@ -132,7 +132,7 @@ if ($nome === '' || $indirizzo === '' || $orario === '' || $responsabile === '' 
 	
 	} else{
 		// salva i dati nel database
-		mysql_query("INSERT struttura_museale SET Nome='$nome', Indirizzo='$indirizzo', Orario_apertura='$orario', Responsabile='$responsabile', Descrizione='$descrizione'") or die(mysql_error());
+		mysql_query("INSERT struttura_museale SET Nome='$nome', Indirizzo='$indirizzo', Orario_apertura='$orario', Responsabile='$responsabile', Descrizione='$descrizione'") or trigger_error(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 		header('Location: view_s.php');

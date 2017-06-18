@@ -165,7 +165,7 @@ if ($nome === '' || $autore === '' || $corrente === '' || $anno === '' || $categ
 	
 	} else{
 		// salva i dati nel database
-		mysql_query("INSERT opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione'") or die(mysql_error());
+		mysql_query("INSERT opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione'") or trigger_error(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 		header('Location: view_o.php');

@@ -136,7 +136,7 @@ if (isset($_POST['submit'])){
 			renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile, $error);
 		} else{
 			// salva i dati nel database
-			mysql_query("UPDATE struttura_museale SET Nome='$nome', Indirizzo='$indirizzo', Orario_apertura='$orario', Responsabile='$responsabile', Descrizione='$descrizione' WHERE ID='$id'") or die(mysql_error());
+			mysql_query("UPDATE struttura_museale SET Nome='$nome', Indirizzo='$indirizzo', Orario_apertura='$orario', Responsabile='$responsabile', Descrizione='$descrizione' WHERE ID='$id'") or trigger_error(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 			header('Location: view_s.php');

@@ -157,7 +157,7 @@ if (isset($_POST['submit'])){
 			
 			// query db
 			$id = $_GET['id'];
-			$result = mysql_query("SELECT * FROM utenti WHERE ID=$id") or die(mysql_error());
+			$result = mysql_query("SELECT * FROM utenti WHERE ID=$id") or trigger_error(mysql_error());
 			$row = mysql_fetch_array($result);
 			 
 			// verifica che l' 'id' corrisponda a una riga nel database

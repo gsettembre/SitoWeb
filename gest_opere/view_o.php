@@ -60,7 +60,7 @@ HTML;
 			include '../dbConnection.php';
 			 
 			// ottiene i risultati dal database
-			$result = mysql_query('SELECT * FROM opere') or die(mysql_error());
+			$result = mysql_query('SELECT * FROM opere') or trigger_error(mysql_error());
 			 
 			// visualizza i dati in tabella
 			$int_tab = <<<HTML
