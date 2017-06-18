@@ -1,11 +1,18 @@
 <?php
 	session_start();
-	$db_username = 'b24_20165157';
-	$db_password = 'passworderrata';
-	$db_name = 'b24_20165157_museum_project';
-	$hostname = 'sql303.byethost24.com:3306';
-	
-	mysql_select_db($db_name, mysql_pconnect($hostname, $db_username, $db_password)) or die ('Impossible connettersi al database'.mysql_error());
+	$host = 'sql303.byethost24.com:3306'; 
+	$user = 'b24_20165157'; 
+	$pass = 'passworderrata';
+	$db = 'b24_20165157_museum_project';
+
+	$r = mysql_pconnect($host, $user, $pass);
+
+	if (!$r) {
+		echo 'Non posso connettermi al server... Servizio temporaneamente non dispobibile!';
+		trigger_error(mysql_error(), E_USER_ERROR);
+	} else {
+		mysql_select_db($db,$r);
+	}
 	
 	function clear($var){
 		return addslashes(htmlspecialchars(trim($var)));

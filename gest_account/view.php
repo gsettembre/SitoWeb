@@ -14,7 +14,7 @@
 	</head>
 	<body>
 	<?php
-		if($_SESSION['ruolo'] == 'Amministratore'){
+		if($_SESSION['ruolo'] === 'Amministratore'){
 			
 		$h_amm = <<<HTML
 			<header id="header">
@@ -64,8 +64,8 @@ HTML;
 			$result = mysql_query('SELECT * FROM utenti') or die(mysql_error());
 			 
 			// visualizza i dati in tabella
-			 
-			echo '<section>
+			$int_tab = <<<HTML
+				<section>
 							<h4>Elenco utenti</h4>
 							<div class="table-wrapper">
 								<table class="alt">
@@ -79,8 +79,10 @@ HTML;
 											<th>Ruolo</th>
 										</tr>
 									</thead>
-									<tbody>';
-									
+									<tbody>
+HTML;
+			echo $int_tab;
+			
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
@@ -97,12 +99,15 @@ HTML;
 			}
 			 
 			// chiude la tabella>
-				echo '</tbody>
+			$finetab = <<<HTML
+					</tbody>
 					<tfoot>
 					</tfoot>
 					</table>
 					</div>
-					</section>';
+					</section>
+HTML;
+			echo $finetab;					
 		?>
 			<p><a href="new.php">Aggiungi un nuovo account</a></p>
 			</div>

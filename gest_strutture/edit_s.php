@@ -28,21 +28,22 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 		<?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
 			
-		echo '<header id="header">
-				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
-						<li><a href="view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="../gest_account/view.php">Gestione Account</a></li>
-						<li><a href="../logout.php">Logout</a></li>
-					</ul>
-					
-				</nav>
-			</header>';
-			
+		$h_amm = <<<HTML
+			 <header id="header">
+					<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+							<li><a href="view_s.php">Gestione Strutture Museali</a></li>
+							<li><a href="../gest_account/view.php">Gestione Account</a></li>
+							<li><a href="../logout.php">Logout</a></li>
+						</ul>
+					</nav>
+				</header>
+HTML;
 		}else{
-			echo '<header id="header">
+			$h_op = <<<HTML
+			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
 				<nav id="nav">
 					<ul>
@@ -51,19 +52,21 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
-			</header>';
-			
+			</header>
+HTML;
+		echo $h_op;
 		} ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
-		<?php
-			
-			// se ci sono errori, vengono visualizzati
-			if ($error != '') {
-			
-				echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
-			}?>
+<?php
+// se ci sono errori, vengono visualizzati
+	$err = <<<HTML
+		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
+HTML;
+if ($error != '')
+	echo $err;
+?>
 			
 			<section id="main" class="wrapper">
 				<div class="container">

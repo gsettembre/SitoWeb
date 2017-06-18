@@ -21,7 +21,6 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 <body>
 <?php
 		if($_SESSION['ruolo'] == 'Amministratore'){
-			
 		$h_amm = <<<HTML
 			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
@@ -32,12 +31,10 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 						<li><a href="view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
-					
 				</nav>
 			</header>
 HTML;
 		echo $h_amm;			
-			
 		}else{
 			$h_op = <<<	HTML
 				<header id="header">
@@ -52,21 +49,19 @@ HTML;
 				</header>
 HTML;
 		echo $h_op;			
-			
 		} ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 <?php
-// se ci sono errori vengono visualizzati
+// se ci sono errori, vengono visualizzati
+	$err = <<<HTML
+		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
+HTML;
 if ($error != '')
-{
-	echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
-}
-?>
- 
+	echo $err;
+?> 
 <section id="main" class="wrapper">
 				<div class="container">
-					
 					<!-- Form inserimento account-->
 						<section>
 							<h3>Inserimento Account</h3>
@@ -101,9 +96,7 @@ if ($error != '')
 								</div>
 							</form>
 						</section>
-						
-						</div>	
-
+				</div>	
 			</section>			
 			
 			<script src="assets/js/jquery.min.js"></script>

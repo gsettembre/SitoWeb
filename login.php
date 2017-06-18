@@ -14,20 +14,20 @@
 		
 		$query = mysql_query("SELECT * FROM utenti WHERE Username='$username' AND Password='$password'");
 		$rows = mysql_num_rows($query);
-		if($rows == 1)
+		if($rows === 1)
 		{
 			//$username = mysql_result(mysql_query("SELECT Username FROM utenti WHERE Username LIKE '$username'"), 0);
 			$isAdmin = mysql_result(mysql_query("SELECT Ruolo FROM utenti WHERE Username='$username' AND Password='$password'"),0);
 			$_SESSION['username'] = $username;
 			$_SESSION['ruolo'] = $isAdmin;
-			if($isAdmin == 'Amministratore'){
+			if($isAdmin === 'Amministratore'){
 				header('Location: areariservata.php'); 
 			}else{
 				header('Location: areariservataop.php');
 			}
 		}
 		else
-		{
+		{		
 				echo("<SCRIPT LANGUAGE = 'JavaScript'>
 						window.alert('Credenziali non valide!')
 						window.location.href = 'login.php';

@@ -57,12 +57,12 @@ HTML;
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 <?php
-
 // se ci sono errori vengono visualizzati
+$err = <<<HTML
+		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
+HTML;
 if ($error != '')
-{
-	echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
-}
+	echo $err;
 ?>
  
 <section id="main" class="wrapper">
@@ -96,15 +96,9 @@ if ($error != '')
 								</div>
 							</form>
 						</section>
-						
 						</div>	
-
 			</section> 
-			
-			
-			
-			
-			
+	
 			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>

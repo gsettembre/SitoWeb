@@ -19,8 +19,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 $id = $_GET['id'];
  
 // elimina la voce
-$result = mysql_query("DELETE FROM utenti WHERE ID='$id'")
-or die(mysql_error());
+$result = mysql_query("DELETE FROM utenti WHERE ID='$id'") or die(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
 header('Location: view.php');

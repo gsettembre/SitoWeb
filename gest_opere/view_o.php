@@ -15,7 +15,7 @@
 	<body>
 	
 	<?php
-		if($_SESSION['ruolo'] == 'Amministratore'){
+		if($_SESSION['ruolo'] === 'Amministratore'){
 				
 		$h_amm = <<<HTML
 			<header id="header">
@@ -33,7 +33,6 @@ HTML;
 		echo $h_amm;
 		
 		}else{
-			
 			$h_op = <<<HTML
 			<header id="header">
 				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
@@ -64,7 +63,7 @@ HTML;
 			$result = mysql_query('SELECT * FROM opere') or die(mysql_error());
 			 
 			// visualizza i dati in tabella
-			$intestazione = <<<HTML
+			$int_tab = <<<HTML
 				<section>
 							<h4>Elenco opere</h4>
 							<div class="table-wrapper">
@@ -83,7 +82,7 @@ HTML;
 									</thead>
 									<tbody>
 HTML;
-			echo $intestazione;
+			echo $int_tab;
 
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
@@ -104,12 +103,15 @@ HTML;
 			}
 			 
 			// chiude la tabella>
-				echo '</tbody>
+			$finetab = <<<HTML
+					</tbody>
 					<tfoot>
 					</tfoot>
 					</table>
 					</div>
-					</section>';
+					</section>
+HTML;
+			echo $finetab;
 		?>
 			<p><a href="new_o.php">Aggiungi una nuova opera</a></p>
 			</div>

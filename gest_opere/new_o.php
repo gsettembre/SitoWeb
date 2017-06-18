@@ -56,12 +56,12 @@ HTML;
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 <?php
-
-// se ci sono errori vengono visualizzati
+// se ci sono errori, vengono visualizzati
+	$err = <<<HTML
+		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
+HTML;
 if ($error != '')
-{
-echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div>';
-}
+	echo $err;
 ?>
 		<section id="main" class="wrapper">
 			<div class="container">
@@ -118,29 +118,17 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">',$error,'</div
 									</div>
 									<div class="12u$">
 										<textarea name="descrizione" value="<?php echo $descrizione;?>" placeholder="Descrizione opera" rows="5"></textarea>
-									</div>
-									
-											
-																		
+									</div>									
 									<div class="12u$">
 										<ul class="actions">
 											<li><input name="submit" type="submit" value="Salva" class="special" /></li>
 										</ul>
 									</div>		
-									
-									
 								</div>
 							</form>
-						</section>					
-						
+						</section>						
 				</div>	
-
 			</section> 
-			
-			
-			
-			
-			
 			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
