@@ -99,12 +99,12 @@ if ($error !== '')
 									</div>
 									
 									<?php
-										$query = mysql_query('SELECT Nome FROM struttura_museale');
-										echo '<div class="6u">';
-											echo '<div class="select-wrapper">';
-												echo '<select name="ubicazione" value="<?php echo $ubicazione;?>">';
-												echo '<option value="0"> - Ubicazione - </option>';
-												while($row = mysql_fetch_array($query))
+										$query = mysql_query('SELECT Nome FROM struttura_museale'); ?>
+										<div class="6u">
+											<div class="select-wrapper">
+												<select name="ubicazione" value="<?php echo $ubicazione?>">
+													<option value="0"> - Ubicazione - </option>
+												<?php while($row = mysql_fetch_array($query))
 												{ ?>
 													<option value="<?php echo $row['Nome']?>"><?php echo $row['Nome'] ?></option>
 												 <?php }							
