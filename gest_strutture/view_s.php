@@ -89,16 +89,19 @@ HTML;
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
-				echo '<tr>';
-				echo '<td>',$row['ID'],'</td>';
-				echo '<td>',$row['Nome'] , '</td>';
-				echo '<td>',$row['Indirizzo'] , '</td>';
-				echo '<td>',$row['Descrizione'] , '</td>';
-				echo '<td>',$row['Orario_apertura'] , '</td>';
-				echo '<td>',$row['Responsabile'] , '</td>';
-				echo '<td><a href="edit_s.php?id=',$row['ID'],'" class="button alt small">Modifica</a></td>';
-				echo '<td><a href="delete_s.php?id=',$row['ID'],'" class="button special small">Elimina</a></td>';
-				echo '</tr>';
+				?>
+				
+				<tr>
+				<td><?php echo $row['ID'] ?></td>
+				<td><?php echo $row['Nome'] ?> </td>
+				<td><?php echo $row['Indirizzo'] ?></td>
+				<td><?php echo $row['Descrizione'] ?></td>
+				<td><?php echo $row['Orario_apertura'] ?></td>
+				<td><?php echo $row['Responsabile'] ?></td>
+				<td><a href="edit_s.php?id=<?php echo $row['ID'] ?>" class="button alt small">Modifica</a></td>
+				<td><a href="delete_s.php?id=<?php echo $row['ID'] ?>" class="button special small">Elimina</a></td>
+				</tr>';
+			<?php
 			}
 			 
 			// chiude la tabella>

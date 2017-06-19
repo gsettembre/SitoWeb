@@ -105,9 +105,9 @@ if ($error !== '')
 												echo '<select name="ubicazione" value="<?php echo $ubicazione;?>">';
 												echo '<option value="0"> - Ubicazione - </option>';
 												while($row = mysql_fetch_array($query))
-												{
-													echo '<option value=\'',$row['Nome'],'\'>',$row['Nome'],'</option>';
-												}							
+												{ ?>
+													<option value="<?php echo $row['Nome']?>"><?php echo $row['Nome'] ?></option>
+												 <?php }							
 									?>
 													</select>
 											</div>

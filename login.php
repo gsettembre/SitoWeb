@@ -27,11 +27,12 @@
 			}
 		}
 		else
-		{		
-				echo("<SCRIPT LANGUAGE = 'JavaScript'>
+		{	?>
+				<SCRIPT LANGUAGE = 'JavaScript'>
 						window.alert('Credenziali non valide!')
 						window.location.href = 'login.php';
-						</SCRIPT>");
+						</SCRIPT>
+			<?php
 		}
 	}else{
 ?>

@@ -86,16 +86,20 @@ HTML;
 			// loop tra i risultati della query del database, visualizzandoli in tabella
 			while($row = mysql_fetch_array( $result )) {
 				// emissione del contenuto di ogni riga in una tabella
-				echo '<tr>';
-				echo '<td>' ,$row['ID'],'</td>';
-				echo '<td>' , $row['Nome'] , '</td>';
-				echo '<td>' , $row['Cognome'] , '</td>';
-				echo '<td>' , $row['Username'] , '</td>';
-				echo '<td>' , $row['Password'] , '</td>';
-				echo '<td>' , $row['Ruolo'] , '</td>';
-				echo '<td><a href="edit.php?id=',$row['ID'],'" class="button alt small">Modifica</a></td>';
-				echo '<td><a href="delete.php?id=',$row['ID'],'" class="button special small">Elimina</a></td>';
-				echo '</tr>';
+				?>
+				
+				<tr>
+				<td><?php echo $row['ID'] ?></td>
+				<td><?php echo $row['Nome'] ?></td>
+				<td><?php echo $row['Cognome'] ?></td>
+				<td><?php echo $row['Username'] ?></td>
+				<td><?php echo $row['Password'] ?></td>
+				<td><?php echo $row['Ruolo'] ?></td>
+				<td><a href="edit.php?id=<?php echo $row['ID']?>" class="button alt small">Modifica</a></td>
+				<td><a href="delete.php?id=<?php echo $row['ID']?>" class="button special small">Elimina</a></td>
+				</tr>
+			
+			<?php
 			}
 			 
 			// chiude la tabella>
