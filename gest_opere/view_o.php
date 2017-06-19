@@ -83,24 +83,26 @@ HTML;
 									<tbody>
 HTML;
 			echo $int_tab;
-
+			
 			// loop tra i risultati della query del database, visualizzandoli in tabella
-			while($row = mysql_fetch_array( $result )) {
+			while($row = mysql_fetch_array( $result )) { 
 				// emissione del contenuto di ogni riga in una tabella
-				echo '<tr>';
-				echo '<td>',$row['ID'],'</td>';
-				echo '<td>', $row['Nome'], '</td>';
-				echo '<td>', $row['Autore'], '</td>';
-				echo '<td>', $row['Corrente_artistica'], '</td>';
-				echo '<td>', $row['Anno_realizzazione'],'</td>';
-				echo '<td>', $row['Dimensioni'], '</td>';
-				echo '<td>', $row['Categoria'], '</td>';
-				echo '<td>', $row['Ubicazione'], '</td>';
-				echo '<td><a href="edit_o.php?id=',$row['ID'],'" class="button alt small">Modifica</a></td>';
-				echo '<td><a href="delete_o.php?id=',$row['ID'],'" class="button special small">Elimina</a></td>';
-				echo '<td><a href="phpqrcode/index.php?id=',$row['ID'],'" class="button small">QR COde</a></td>';
-				echo '</tr>';
-			}
+				?>
+				<tr>
+				<td><?php echo $row['ID'] ?></td>
+				<td><?php echo $row['Nome'] ?></td>
+				<td><?php echo $row['Autore'] ?></td>
+				<td><?php echo $row['Corrente_artistica']?></td>
+				<td> <?php echo $row['Anno_realizzazione']?></td>
+				<td><?php echo $row['Dimensioni'] ?></td>
+				<td><?php echo $row['Categoria'] ?></td>
+				<td><?php echo $row['Ubicazione'] ?></td>
+				<td><a href="edit_o.php?id=<?php echo $row['ID']?>" class="button alt small">Modifica</a></td>
+				<td><a href="delete_o.php?id=<?php echo $row['ID']?>" class="button special small">Elimina</a></td>
+				<td><a href="phpqrcode/index.php?id=<?php echo $row['ID']?>" class="button small">QR COde</a></td>
+				</tr>	
+				<?php
+				}
 			 
 			// chiude la tabella>
 			$finetab = <<<HTML
