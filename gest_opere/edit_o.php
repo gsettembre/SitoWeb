@@ -26,7 +26,7 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 			
 		$h_amm = <<<HTML
 			<header id="header">
-				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="view_o.php">Gestione Opere</a></li>
@@ -42,7 +42,7 @@ HTML;
 		}else{
 			$h_op = <<<HTML
 				<header id="header">
-					<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="view_o.php">Gestione Opere</a></li>

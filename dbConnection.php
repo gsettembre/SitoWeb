@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	$host = 'sql303.byethost24.com:3306'; 
-	$user = 'b24_20165157'; 
-	$pass = 'passworderrata';
-	$db = 'b24_20165157_museum_project';
+	$host = 'localhost'; 
+	$user = 'durresmuseum'; 
+	$pass = 'ilciucciovola';
+	$db = 'my_durresmuseum';
 
 	$r = mysql_pconnect($host, $user, $pass);
 

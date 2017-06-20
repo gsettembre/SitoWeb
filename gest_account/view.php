@@ -18,7 +18,7 @@
 			
 		$h_amm = <<<HTML
 			<header id="header">
-				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
@@ -35,7 +35,7 @@ HTML;
 		
 		$h_op = <<<	HTML
 			<header id="header">
-				<h1><strong><a href="../index.html">Museo Archeologico di Durazzo </a></strong></h1>
+				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
