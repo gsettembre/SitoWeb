@@ -34,7 +34,7 @@
 				<div class="container">
 					<section>
 						<header>
-							<p><?php echo 'Ciao ',$_SESSION['username']; ?></p><h3>Benvenuto nell'area riservata dedicata agli operatori museali.</h3>
+							<p><?php $username = $_SESSION['username']; echo 'Ciao, '; echo htmlspecialchars($username); ?></p><h3>Benvenuto nell'area riservata dedicata agli operatori museali.</h3>
 
 						</header>
 						<p>All'interno di questa area è consentito l'accesso alle seguenti sezioni: </p>
