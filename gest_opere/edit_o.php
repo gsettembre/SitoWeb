@@ -17,7 +17,7 @@
 <?php
 // crea il form di modifica record
 // dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
-function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
+function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $pronta, $error)
 {
 ?>
 	
@@ -112,8 +112,17 @@ if ($error != '')
 													</select>
 												</div>
 										</div>
-									<div class="6u$ 12u$(xsmall)">
+									<div class="6u 12u$(xsmall)">
 										<input type="text" name="dimensioni" value="<?php echo $dimensioni;?>" placeholder="Dimensioni" />
+									</div>
+									<div class="6u$">
+										<div class="select-wrapper">
+											<select name="pronta" value="<?php echo $pronta;?>">
+												<option value="0">Pronta per la pubblicazione?</option>
+												<option value="1">si</option>
+												<option value="2">no</option>
+											</select>
+										</div>
 									</div>
 									<div class="12u$">
 										<input type="text" name="descrizione" value="<?php echo $descrizione;?>" placeholder="Descrizione opera" />
@@ -153,17 +162,18 @@ if (isset($_POST['submit']) === true){
 		$dimensioni = mysql_real_escape_string(htmlspecialchars($_POST['dimensioni']));
 		$ubicazione = mysql_real_escape_string(htmlspecialchars($_POST['ubicazione']));
 		$descrizione = mysql_real_escape_string(htmlspecialchars($_POST['descrizione']));
+		$pronta = mysql_real_escape_string(htmlspecialchars($_POST['pronta']));
 		 
 		// controlla che i campi nome/cognome siano entrambi compilati
-		if ($nome === '' || $autore === '' || $corrente === '' || $anno === '' || $categoria === '' || $dimensioni === '' || $ubicazione === '' || $descrizione === ''){
+		if ($nome === ''){
 			// genera messaggio di errore
-			$error = 'ERROR: Tutti i campi sono obbligatori!';
+			$error = "ERROR: Il campo Nome e' obbligatorio!";
 			 
 			// errore, visualizzo il modulo
-			renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error);
+			renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $pronta, $error);
 		} else{
 			// salva i dati nel database
-			mysql_query("UPDATE opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione' WHERE ID='$id'") or trigger_error(mysql_error());
+			mysql_query("UPDATE opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione', Pronta='$pronta' WHERE ID='$id'") or trigger_error(mysql_error());
 			 
 			// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 			header('Location: view_o.php');
@@ -198,9 +208,10 @@ if (isset($_POST['submit']) === true){
 				$dimensioni = $row['Dimensioni'];
 				$ubicazione = $row['Ubicazione'];
 				$descrizione = $row['Descrizione'];
+				$pronta = $row['Pronta'];
 				
 				// visualizza il modulo
-				renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error);
+				renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $pronta, $error);
 				
 			} else { // se non corrisponde visualizza il risultato
 				

@@ -10,7 +10,7 @@
 	if ($r == true) {
 		mysql_select_db($db,$r);
 	} else {
-		echo 'Non posso connettermi al server... Servizio temporaneamente non dispobibile!';
+		echo 'Non posso connettermi al server... Servizio temporaneamente non disponibile!';
 		trigger_error(mysql_error(), E_USER_ERROR);
 	}
 	

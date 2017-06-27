@@ -131,7 +131,7 @@ if (isset($_POST['submit'])){
 		// controlla che i campi nome/cognome siano entrambi compilati
 		if ($username === '' || $password === '' || $nome === '' || $cognome === '' || $ruolo === ''){
 			// genera messaggio di errore
-			$error = 'ERROR: Tutti i campi sono campi obbligatori!';
+			$error = 'ERROR: Tutti i campi sono obbligatori!';
 			 
 			// errore, visualizzo il modulo
 			renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error);

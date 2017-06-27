@@ -17,7 +17,7 @@
  
 // crea il modulo di inserimento nuovi dati
 // dal momento che questo modulo è utilizzato più volte in questo file, ho fatto una funzione facilmente riutilizzabile
-function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error)
+function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $pronta, $error)
 {
 ?>
 
@@ -97,7 +97,6 @@ if ($error !== '')
 											</select>
 										</div>
 									</div>
-									
 									<?php
 										$query = mysql_query('SELECT Nome FROM struttura_museale'); ?>
 										<div class="6u">
@@ -112,8 +111,17 @@ if ($error !== '')
 												</select>
 											</div>
 										</div>
-									<div class="6u$ 12u$(xsmall)">
+									<div class="6u 12u$(xsmall)">
 										<input type="text" name="dimensioni" value="<?php echo $dimensioni;?>" placeholder="Dimensioni" />
+									</div>
+									<div class="6u$">
+										<div class="select-wrapper">
+											<select name="pronta" value="<?php echo $pronta;?>">
+												<option value="0">Pronta per la pubblicazione?</option>
+												<option value="1">si</option>
+												<option value="2">no</option>
+											</select>
+										</div>
 									</div>
 									<div class="12u$">
 										<textarea name="descrizione" value="<?php echo $descrizione;?>" placeholder="Descrizione opera" rows="5"></textarea>
@@ -153,18 +161,19 @@ if (isset($_POST['submit']) === true)
 	$dimensioni = mysql_real_escape_string(htmlspecialchars($_POST['dimensioni']));
 	$ubicazione = mysql_real_escape_string(htmlspecialchars($_POST['ubicazione']));
 	$descrizione = mysql_real_escape_string(htmlspecialchars($_POST['descrizione']));
+	$pronta = mysql_real_escape_string(htmlspecialchars($_POST['pronta']));
  
 // controlla che entrambi i campi vengono inseriti
-if ($nome === '' || $autore === '' || $corrente === '' || $anno === '' || $categoria === '' || $dimensioni === '' || $ubicazione === '' || $descrizione === ''){
+if ($nome === ''){
 	// genera messaggio di errore
-	$error = 'ERROR: Tutti i campi sono obbligatori!';
+	$error = "ERROR: Il campo Nome e' obbligatorio!";
 	 
 	// se uno dei due campi è vuoto, visualizzo di nuovo il modulo
-	renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $error);
+	renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensioni, $ubicazione, $descrizione, $pronta, $error);
 	
 	} else{
 		// salva i dati nel database
-		mysql_query("INSERT INTO opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione'") or trigger_error(mysql_error());
+		mysql_query("INSERT INTO opere SET Nome='$nome', Autore='$autore', Corrente_artistica='$corrente', Anno_realizzazione='$anno', Categoria='$categoria', Dimensioni='$dimensioni', Ubicazione='$ubicazione', Descrizione='$descrizione', Pronta='$pronta'") or trigger_error(mysql_error());
 	 
 		// una volta salvato, si viene reindirizzati alla pagina di visualizzazione
 		header('Location: view_o.php');
@@ -172,7 +181,7 @@ if ($nome === '' || $autore === '' || $corrente === '' || $anno === '' || $categ
 }
 else {
 	// se il modulo non è stato inviato, visualizzare il modulo
-	renderForm('','','','','','','','','','');
+	renderForm('','','','','','','','','','','');
 }
 ?>
 

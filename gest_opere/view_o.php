@@ -74,10 +74,11 @@ HTML;
 											<th>Nome</th>
 											<th>Autore</th>
 											<th>Corrente Artistica</th>
-											<th>Anno Realizzazione</th>
+											<th>Anno</th>
 											<th>Dimensioni</th>
 											<th>Catetogia</th>
 											<th>Ubicazione</th>
+											<th>Pronta</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -97,6 +98,7 @@ HTML;
 				<td><?php echo $row['Dimensioni'] ?></td>
 				<td><?php echo $row['Categoria'] ?></td>
 				<td><?php echo $row['Ubicazione'] ?></td>
+				<td><?php echo $row['Pronta'] ?></td>
 				<td><a href="edit_o.php?id=<?php echo $row['ID']?>" class="button alt small">Modifica</a></td>
 				<td><a href="delete_o.php?id=<?php echo $row['ID']?>" class="button special small">Elimina</a></td>
 				<td><a href="phpqrcode/index.php?id=<?php echo $row['ID']?>" class="button small">QR COde</a></td>
