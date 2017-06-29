@@ -54,13 +54,10 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
 <?php
-// se ci sono errori, vengono visualizzati
-	$err = <<<HTML
-		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
-HTML;
-if ($error != '')
-	echo $err;
-?>
+if ($error != '') { ?>
+	
+	<div style="padding:4px; border:1px solid red; color:red;"><?php echo htmlentities($error); ?></div>
+ <?php } ?>
 			<section id="main" class="wrapper">
 				<div class="container">
 					
