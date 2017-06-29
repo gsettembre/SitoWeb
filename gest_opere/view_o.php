@@ -14,39 +14,31 @@
 	</head>
 	<body>
 	
-	<?php
-		if($_SESSION['ruolo'] === 'Amministratore'){
-				
-		$h_amm = <<<HTML
+<?php
+		if($_SESSION['ruolo'] == 'Amministratore'){ ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="view_o.php">Gestione Opere</a></li>
+						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
 						<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="../gest_account/view.php">Gestione Account</a></li>
+						<li><a href="view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
-			</header>
-HTML;
-		echo $h_amm;
-		
-		}else{
-			$h_op = <<<HTML
-			<header id="header">
-				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="view_o.php">Gestione Opere</a></li>
-						<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="../logout.php">Logout</a></li>
-					</ul>
-				</nav>
-			</header>
-HTML;
-			echo $h_op;
-		} ?>
+			</header>			
+		<?php }else{ ?>
+				<header id="header">
+					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+							<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
+							<li><a href="../logout.php">Logout</a></li>
+						</ul>
+					</nav>
+				</header>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
@@ -90,15 +82,15 @@ HTML;
 				// emissione del contenuto di ogni riga in una tabella
 				?>
 				<tr>
-				<td><?php echo $row['ID'] ?></td>
-				<td><?php echo $row['Nome'] ?></td>
-				<td><?php echo $row['Autore'] ?></td>
-				<td><?php echo $row['Corrente_artistica']?></td>
-				<td> <?php echo $row['Anno_realizzazione']?></td>
-				<td><?php echo $row['Dimensioni'] ?></td>
-				<td><?php echo $row['Categoria'] ?></td>
-				<td><?php echo $row['Ubicazione'] ?></td>
-				<td><?php echo $row['Pronta'] ?></td>
+				<td><?php echo htmlspecialchars($row['ID']) ?></td>
+				<td><?php echo htmlspecialchars($row['Nome']) ?></td>
+				<td><?php echo htmlspecialchars($row['Autore']) ?></td>
+				<td><?php echo htmlspecialchars($row['Corrente_artistica'])?></td>
+				<td><?php echo htmlspecialchars($row['Anno_realizzazione'])?></td>
+				<td><?php echo htmlspecialchars($row['Dimensioni']) ?></td>
+				<td><?php echo htmlspecialchars($row['Categoria']) ?></td>
+				<td><?php echo htmlspecialchars($row['Ubicazione']) ?></td>
+				<td><?php echo htmlspecialchars($row['Pronta']) ?></td>
 				<td><a href="edit_o.php?id=<?php echo $row['ID']?>" class="button alt small">Modifica</a></td>
 				<td><a href="delete_o.php?id=<?php echo $row['ID']?>" class="button special small">Elimina</a></td>
 				<td><a href="phpqrcode/index.php?id=<?php echo $row['ID']?>" class="button small">QR COde</a></td>
