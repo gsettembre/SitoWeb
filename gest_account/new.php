@@ -20,8 +20,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 </head>
 <body>
 <?php
-		if($_SESSION['ruolo'] == 'Amministratore'){
-		$h_amm = <<<HTML
+		if($_SESSION['ruolo'] == 'Amministratore'){ ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -32,11 +31,8 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
-			</header>
-HTML;
-		echo $h_amm;			
-		}else{
-			$h_op = <<<	HTML
+			</header>			
+		<?php }else{ ?>
 				<header id="header">
 					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 					<nav id="nav">
@@ -47,19 +43,15 @@ HTML;
 						</ul>
 					</nav>
 				</header>
-HTML;
-		echo $h_op;			
-		} ?>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
 <?php
-// se ci sono errori, vengono visualizzati
-	$err = <<<HTML
-		<div style="padding:4px; border:1px solid red; color:red;">$error</div>
-HTML;
-if ($error != '')
-	echo $err;
-?> 
+if ($error != '') { ?>
+	
+	<div style="padding:4px; border:1px solid red; color:red;"><?php echo $error; ?></div>
+ <?php } ?>
 <section id="main" class="wrapper">
 				<div class="container">
 					<!-- Form inserimento account-->
