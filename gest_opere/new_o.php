@@ -22,9 +22,7 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 ?>
 
 <?php
-		if($_SESSION['ruolo'] === 'Amministratore'){
-			
-		$h_amm = <<<HTML
+		if($_SESSION['ruolo'] === 'Amministratore'){ ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -34,13 +32,9 @@ function renderForm($id, $nome, $autore, $corrente, $anno, $categoria, $dimensio
 						<li><a href="../gest_account/view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
-					
 				</nav>
-			</header>			
-HTML;
-			echo $h_amm;			
-		}else{
-			$h_op = <<<HTML
+			</header>					
+		<?php } else { ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -51,9 +45,7 @@ HTML;
 					</ul>
 				</nav>
 			</header>
-HTML;
-		echo $h_op;
-		} ?>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 <?php
@@ -105,7 +97,7 @@ if ($error !== '')
 													<option value="0"> - Ubicazione - </option>
 												<?php while($row = mysql_fetch_array($query))
 												{ ?>
-													<option value="<?php echo $row['Nome']?>"><?php echo $row['Nome'] ?></option>
+													<option value="<?php echo htmlspecialchars($row['Nome'])?>"><?php echo htmlspecialchars($row['Nome']) ?></option>
 												 <?php }							
 									?>
 												</select>

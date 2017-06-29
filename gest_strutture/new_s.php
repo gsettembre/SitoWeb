@@ -22,9 +22,7 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 <body>
 
 <?php
-		if($_SESSION['ruolo'] === 'Amministratore'){
-			
-			$h_amm = <<<HTML
+		if($_SESSION['ruolo'] === 'Amministratore'){ ?>
 			 <header id="header">
 					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 					<nav id="nav">
@@ -36,11 +34,7 @@ function renderForm($id, $nome, $indirizzo, $descrizione, $orario, $responsabile
 						</ul>
 					</nav>
 				</header>
-HTML;
-		echo $h_amm;	
-		}else{
-			
-			$h_op = <<<HTML
+		<?php } else { ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -51,9 +45,7 @@ HTML;
 					</ul>
 				</nav>
 			</header>
-HTML;
-		echo $h_op;	
-		} ?>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 <?php

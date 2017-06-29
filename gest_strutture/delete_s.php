@@ -18,10 +18,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 // ottiene il valore id
 $id = $_GET['id'];
  
-$query = sprintf("DELETE FROM struttura_museale WHERE ID = '%s'", mysql_real_escape_string($id)); 
- 
 // elimina la voce
-$result = mysql_query($query) or trigger_error(mysql_error());
+$result = mysql_query("DELETE FROM struttura_museale WHERE ID='$id'") or trigger_error(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
 header('Location: view_s.php');

@@ -14,9 +14,7 @@
 	</head>
 	<body>
 	<?php
-		if($_SESSION['ruolo'] === 'Amministratore'){
-			
-		$h_amm = <<<HTML
+		if($_SESSION['ruolo'] === 'Amministratore'){ ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -28,12 +26,8 @@
 					</ul>
 				</nav>
 			</header>
-HTML;
-		echo $h_amm;
-			
-		}else{
-		
-		$h_op = <<<	HTML
+	
+		<?php } else { ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -44,10 +38,7 @@ HTML;
 					</ul>
 				</nav>
 			</header>
-HTML;
-		echo $h_op;
-		
-		} ?>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
@@ -89,12 +80,12 @@ HTML;
 				?>
 				
 				<tr>
-				<td><?php echo $row['ID'] ?></td>
-				<td><?php echo $row['Nome'] ?></td>
-				<td><?php echo $row['Cognome'] ?></td>
-				<td><?php echo $row['Username'] ?></td>
-				<td><?php echo $row['Password'] ?></td>
-				<td><?php echo $row['Ruolo'] ?></td>
+				<td><?php echo htmlspecialchars($row['ID']) ?></td>
+				<td><?php echo htmlspecialchars($row['Nome']) ?></td>
+				<td><?php echo htmlspecialchars($row['Cognome']) ?></td>
+				<td><?php echo htmlspecialchars($row['Username']) ?></td>
+				<td><?php echo htmlspecialchars($row['Password']) ?></td>
+				<td><?php echo htmlspecialchars($row['Ruolo']) ?></td>
 				<td><a href="edit.php?id=<?php echo $row['ID']?>" class="button alt small">Modifica</a></td>
 				<td><a href="delete.php?id=<?php echo $row['ID']?>" class="button special small">Elimina</a></td>
 				</tr>

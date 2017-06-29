@@ -15,28 +15,19 @@
 	<body>
 	
 	<?php
-	
-		if($_SESSION['ruolo'] === 'Amministratore'){
-		
-		$h_amm = <<<HTML
-		<header id="header">
-				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
-						<li><a href="view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="../gest_account/view.php">Gestione Account</a></li>
-						<li><a href="../logout.php">Logout</a></li>
-					</ul>
-				</nav>
-			</header> 
-HTML;
-			
-		echo $h_amm;
-			
-		}else{
-			
-			$h_op = <<<HTML
+		if($_SESSION['ruolo'] == 'Amministratore'){ ?>
+			 <header id="header">
+					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+							<li><a href="view_s.php">Gestione Strutture Museali</a></li>
+							<li><a href="../gest_account/view.php">Gestione Account</a></li>
+							<li><a href="../logout.php">Logout</a></li>
+						</ul>
+					</nav>
+				</header>
+		<?php } else { ?>
 			<header id="header">
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
@@ -47,10 +38,7 @@ HTML;
 					</ul>
 				</nav>
 			</header>
-HTML;
-		echo $h_op;
-		
-		} ?>
+		<?php } ?>
 		
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			
@@ -92,12 +80,12 @@ HTML;
 				?>
 				
 				<tr>
-				<td><?php echo $row['ID'] ?></td>
-				<td><?php echo $row['Nome'] ?> </td>
-				<td><?php echo $row['Indirizzo'] ?></td>
-				<td><?php echo $row['Descrizione'] ?></td>
-				<td><?php echo $row['Orario_apertura'] ?></td>
-				<td><?php echo $row['Responsabile'] ?></td>
+				<td><?php echo htmlspecialchars($row['ID']) ?></td>
+				<td><?php echo htmlspecialchars($row['Nome']) ?> </td>
+				<td><?php echo htmlspecialchars($row['Indirizzo']) ?></td>
+				<td><?php echo htmlspecialchars($row['Descrizione']) ?></td>
+				<td><?php echo htmlspecialchars($row['Orario_apertura']) ?></td>
+				<td><?php echo htmlspecialchars($row['Responsabile']) ?></td>
 				<td><a href="edit_s.php?id=<?php echo $row['ID'] ?>" class="button alt small">Modifica</a></td>
 				<td><a href="delete_s.php?id=<?php echo $row['ID'] ?>" class="button special small">Elimina</a></td>
 				</tr>
