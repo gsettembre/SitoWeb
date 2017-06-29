@@ -50,7 +50,7 @@ function renderForm($id, $nome, $cognome, $username, $password, $ruolo, $error)
 <?php
 if ($error != '') { ?>
 	
-	<div style="padding:4px; border:1px solid red; color:red;"><?php echo $error; ?></div>
+	<div style="padding:4px; border:1px solid red; color:red;"><?php echo htmlentities($error); ?></div>
  <?php } ?>
 <section id="main" class="wrapper">
 				<div class="container">
