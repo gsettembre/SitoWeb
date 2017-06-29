@@ -16,13 +16,10 @@ include '../dbConnection.php';
 if (isset($_GET['id']) && is_numeric($_GET['id']))
 {
 // ottiene il valore id
-$id = $_GET['id'];
+$id = mysql_real_escape_string($_GET['id']); 
  
 // elimina la voce
-$query = sprintf(
-  "DELETE FROM utenti WHERE ID = '%s'", mysql_real_escape_string($id));
-
-
+$query = sprintf("DELETE FROM utenti WHERE ID = '%s'", mysql_real_escape_string($id));
 $result = mysql_query($query) or trigger_error(mysql_error());
  
 // reindirizza alla pagina di visualizzazione
