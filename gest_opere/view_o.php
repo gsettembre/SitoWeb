@@ -20,9 +20,9 @@
 				<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+						<li><a href="view_o.php">Gestione Opere</a></li>
 						<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
-						<li><a href="view.php">Gestione Account</a></li>
+						<li><a href="../gest_account/view.php">Gestione Account</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</nav>
@@ -32,7 +32,7 @@
 					<h1><strong>Museo Archeologico di Durazzo</strong></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="../gest_opere/view_o.php">Gestione Opere</a></li>
+							<li><a href="view_o.php">Gestione Opere</a></li>
 							<li><a href="../gest_strutture/view_s.php">Gestione Strutture Museali</a></li>
 							<li><a href="../logout.php">Logout</a></li>
 						</ul>
